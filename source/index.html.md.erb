@@ -78,3 +78,44 @@ This project is in active use by:
 In development:
 
 - GOV.UK Notify ([GitHub repo](https://github.com/alphagov/notifications-tech-docs))
+
+## Deployment
+
+One way to deploy your site is to use the [GOV.UK PaaS](https://docs.cloud.service.gov.uk).
+
+To set up automatic deployment, create a file named `.travis.yml` with the following:
+
+```yaml
+# .travis.yml
+language: ruby
+cache: bundler
+bundler_args: "--without development"
+script: bundle exec middleman build
+deploy:
+  provider: cloudfoundry
+  api: https://api.cloud.service.gov.uk
+  username: <YOUR_PAAS_EMAIL_ADDRESS>
+  password:
+    secure: <YOUR_ENCRYPTED_PAAS_PASSWORD>
+  organization: <YOUR_PAAS_ORGANISATION>
+  space: <YOUR_PAAS_SPACE>
+  on:
+    repo: alphagov/<YOUR_REPO>
+    branch: master
+```
+
+See the [GDS Way .travis.yml for an example](https://github.com/alphagov/gds-way/blob/master/.travis.yml).
+
+You can encrypt your password by <INSERT MAGIC>.
+
+In addition, you'll need a `manifest.yml` for the PaaS:
+
+```yaml
+# manifest.yml
+---
+applications:
+- name: <YOUR_PAAS_APP_NAME>
+  memory: 64M
+  path: ./build
+  buildpack: staticfile_buildpack
+```
