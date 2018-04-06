@@ -2,3 +2,14 @@ language: ruby
 cache: bundler
 bundler_args: "--without development"
 script: bundle exec middleman build
+deploy:
+  provider: cloudfoundry
+  api: https://api.cloud.service.gov.uk
+  username: philip.potter+tech-docs-deployer@digital.cabinet-office.gov.uk
+  password:
+    secure: <YOUR_ENCRYPTED_PAAS_PASSWORD>
+  organization: gds-tech-ops
+  space: docs
+  on:
+    repo: alphagov/tech-docs-manual
+    branch: master
