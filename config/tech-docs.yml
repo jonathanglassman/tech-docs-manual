@@ -1,5 +1,5 @@
 # Host to use for canonical URL generation (without trailing slash)
-host: tech-docs-manual.cloudapps.digital
+host: alphagov.github.io/tech-docs-manual
 
 # Header-related options
 show_govuk_logo: false
