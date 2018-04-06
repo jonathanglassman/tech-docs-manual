@@ -1,0 +1,76 @@
+<h1 id="available-frontmatter">Available frontmatter</h1>
+<p>&ldquo;Frontmatter&rdquo; allows page-specific variables to be included at the top of a template using YAML. For a general introduction on frontmatter, see the <a href="https://middlemanapp.com/basics/frontmatter">Middleman frontmatter docs</a>.</p>
+<h2 id="last-reviewed-on-and-review-in"><code>last_reviewed_on</code> and <code>review_in</code></h2>
+<p>These attributes determine the date when the page needs to be reviewed next.</p>
+
+<p>If the page doesn&rsquo;t need to be reviewed, we show a blue box with the last-reviewed date, when it needs review again, and the owner.</p>
+
+<p><a href="not-expired-page.png" target="_blank" rel="noopener noreferrer"><img src="/not-expired-page.png" alt="Not expired page" /></a></p>
+
+<p>If the page needs to be reviewed, we show a red box saying the page might not be accurate.</p>
+
+<p><a href="expired-page.png" target="_blank" rel="noopener noreferrer"><img src="/expired-page.png" alt="Expired page" /></a></p>
+
+<p>Example:</p>
+<div class="highlight"><pre class="highlight yaml"><code><span class="nn">---</span>
+<span class="na">last_reviewed_on</span><span class="pi">:</span> <span class="s">2018-01-18</span>
+<span class="na">review_in</span><span class="pi">:</span> <span class="s">6 weeks</span>
+<span class="nn">---</span>
+</code></pre></div>
+<p>You can use this in combination with <a href="#owner-slack">owner_slack</a> to set an owner for the page.</p>
+<h2 id="layout"><code>layout</code></h2>
+<p>The layout of the page.</p>
+<div class="highlight"><pre class="highlight yaml"><code><span class="nn">---</span>
+<span class="na">layout</span><span class="pi">:</span> <span class="s">core</span>
+<span class="nn">---</span>
+</code></pre></div>
+<p>There are 2 available page layouts.</p>
+<h3 id="the-layout-layout-default">The <code>layout</code> layout (default)</h3>
+<p>By default, pages will use the <code>layout</code> layout. This layout will parse the page and generate a sidebar with a table of contents consisting of each <code>h2</code>, <code>h3</code>, <code>h4</code> heading.</p>
+<div class="highlight"><pre class="highlight markdown"><code><span class="nn">---</span>
+<span class="na">layout</span><span class="pi">:</span> <span class="s">layout</span>
+<span class="nn">---</span>
+
+<span class="gh"># The title</span>
+
+<span class="gu">## A subheader</span>
+
+<span class="gu">### A h3 subheader</span>
+
+<span class="gu">## Another subheader</span>
+</code></pre></div>
+<p>Will generate a page with the headings from the content in the sidebar.</p>
+
+<p><a href="layout-layout.png" target="_blank" rel="noopener noreferrer"><img src="/layout-layout.png" alt="Layout layout" /></a></p>
+<h3 id="core-layout"><code>core</code> layout</h3>
+<p>If you want more control about the layout, use <code>core</code> layout. This allows you to specify the sidebar manually with a <code>content_for</code> block.</p>
+<div class="highlight"><pre class="highlight ruby"><code><span class="o">---</span>
+<span class="ss">layout: </span><span class="n">core</span>
+<span class="o">---</span>
+
+<span class="o">&lt;</span><span class="sx">% content_for </span><span class="ss">:sidebar</span> <span class="k">do</span> <span class="sx">%&gt;
+  You can put anything in the sidebar.
+&lt;% end %&gt;</span>
+
+<span class="no">This</span> <span class="n">page</span> <span class="n">has</span> <span class="n">a</span> <span class="n">configurable</span> <span class="n">sidebar</span> <span class="n">that</span> <span class="n">is</span> <span class="n">independent</span> <span class="n">of</span> <span class="n">the</span> <span class="n">content</span><span class="o">.</span>
+</code></pre></div>
+<p><a href="core-layout.png" target="_blank" rel="noopener noreferrer"><img src="/core-layout.png" alt="Core layout" /></a></p>
+<h2 id="old-paths"><code>old_paths</code></h2>
+<p>Any paths of pages that should redirect to this page.</p>
+
+<p>Example:</p>
+<div class="highlight"><pre class="highlight yaml"><code><span class="nn">---</span>
+<span class="na">old_paths</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">/some-old-page.html</span>
+<span class="nn">---</span>
+</code></pre></div><h2 id="owner-slack"><code>owner_slack</code></h2>
+<p>The Slack username or channel of the page owner. This can be used to appoint an individual or team as responsible for keeping the page up to date.</p>
+<div class="highlight"><pre class="highlight yaml"><code><span class="nn">---</span>
+<span class="na">owner_slack</span><span class="pi">:</span> <span class="s2">"</span><span class="s">#operations-teams"</span>
+<span class="nn">---</span>
+</code></pre></div><h2 id="title"><code>title</code></h2>
+<p>The browser title of the page.</p>
+<div class="highlight"><pre class="highlight yaml"><code><span class="nn">---</span>
+<span class="na">title</span><span class="pi">:</span> <span class="s">My beautiful page</span>
+<span class="nn">---</span>
+</code></pre></div>

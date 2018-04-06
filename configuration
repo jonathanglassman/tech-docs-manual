@@ -1,0 +1,61 @@
+<h1 id="configuration">Configuration</h1>
+<p>You can configure the site using <code>config/tech-docs.yml</code>. <a href="https://github.com/alphagov/paas-tech-docs/blob/master/config/tech-docs.yml">See the PaaS tech docs for an example</a>.</p>
+
+<p>These are all the available options:</p>
+<h2 id="ga-tracking-id"><code>ga_tracking_id</code></h2>
+<p>Tracking ID from Google Analytics</p>
+<div class="highlight"><pre class="highlight yaml"><code><span class="na">ga_tracking_id</span><span class="pi">:</span> <span class="s">UA-XXXX-Y</span>
+</code></pre></div><h2 id="github-repo"><code>github_repo</code></h2>
+<p>Your repository. Required if <a href="#show-contribution-banner">show_contribution_banner</a> is true.</p>
+<div class="highlight"><pre class="highlight yaml"><code><span class="na">github_repo</span><span class="pi">:</span> <span class="s">alphagov/example-repo</span>
+</code></pre></div><h2 id="google-site-verification"><code>google_site_verification</code></h2>
+<p>Adds a <a href="https://support.google.com/webmasters/answer/35179?hl=en">Google Site Verification code</a> to the meta tags.</p>
+<div class="highlight"><pre class="highlight yaml"><code><span class="na">google_site_verification</span><span class="pi">:</span> <span class="s">TvDTuyvdstyusadrCSDrctyd</span>
+</code></pre></div><h2 id="header-links"><code>header_links</code></h2>
+<p>Right hand side navigation.</p>
+
+<p>Example:</p>
+<div class="highlight"><pre class="highlight yaml"><code><span class="na">header_links</span><span class="pi">:</span>
+  <span class="na">Documentation</span><span class="pi">:</span> <span class="s">/</span>
+</code></pre></div><h2 id="host"><code>host</code></h2>
+<p>Host to use for canonical URL generation (without trailing slash).</p>
+
+<p>Example:</p>
+<div class="highlight"><pre class="highlight yaml"><code><span class="na">host</span><span class="pi">:</span> <span class="s">https://docs.cloud.service.gov.uk</span>
+</code></pre></div><h2 id="max-toc-heading-level"><code>max_toc_heading_level</code></h2>
+<p>Table of contents depth – how many levels to include in the table of contents. If your ToC is too long, reduce this number and we&rsquo;ll only show higher-level headings.</p>
+<div class="highlight"><pre class="highlight yaml"><code><span class="na">max_toc_heading_level</span><span class="pi">:</span> <span class="s">6</span>
+</code></pre></div><h2 id="phase"><code>phase</code></h2><div class="highlight"><pre class="highlight yaml"><code><span class="na">phase</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Beta"</span>
+</code></pre></div><h2 id="prevent-indexing"><code>prevent_indexing</code></h2>
+<p>Prevent robots from indexing (e.g. whilst in development)</p>
+<div class="highlight"><pre class="highlight yaml"><code><span class="na">prevent_indexing</span><span class="pi">:</span> <span class="no">false</span>
+</code></pre></div><h2 id="redirects"><code>redirects</code></h2>
+<p>A list of redirects, from old to new location. Use this to set up external
+redirects or if <a href="docs/frontmatter.md#old_paths">setting <code>old_paths</code> in the frontmatter</a> doesn&rsquo;t work.</p>
+<div class="highlight"><pre class="highlight yaml"><code><span class="na">redirects</span><span class="pi">:</span>
+  <span class="s">/old-page.html</span><span class="pi">:</span> <span class="s">https://example.org/something-else.html</span>
+  <span class="s">/another/old-page.html</span><span class="pi">:</span> <span class="s">/another/new-page.html</span>
+</code></pre></div><h2 id="service-name"><code>service_name</code></h2>
+<p>The service name in the header.</p>
+
+<p>Example:</p>
+<div class="highlight"><pre class="highlight yaml"><code><span class="na">service_name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Platform</span><span class="nv"> </span><span class="s">as</span><span class="nv"> </span><span class="s">a</span><span class="nv"> </span><span class="s">Service"</span>
+</code></pre></div><h2 id="service-link"><code>service_link</code></h2>
+<p>What the service name in the header links to.</p>
+
+<p>default: &rsquo;/&rsquo;</p>
+<div class="highlight"><pre class="highlight yaml"><code><span class="na">service_link</span><span class="pi">:</span> <span class="s2">"</span><span class="s">/"</span>
+</code></pre></div><h2 id="show-contribution-banner"><code>show_contribution_banner</code></h2>
+<p>Show a block at the bottom of the page that links to the page source, so readers
+can easily contribute back to the documentation. If turned on <a href="#github-repo">github_repo</a> is
+required.</p>
+
+<p>Off by default.</p>
+<div class="highlight"><pre class="highlight yaml"><code><span class="na">show_contribution_banner</span><span class="pi">:</span> <span class="no">true</span>
+<span class="na">github_repo</span><span class="pi">:</span> <span class="s">alphagov/example-repo</span>
+</code></pre></div><h2 id="show-govuk-logo"><code>show_govuk_logo</code></h2>
+<p>Whether to show the GOV.UK crown logo.</p>
+
+<p>default: <code>true</code></p>
+<div class="highlight"><pre class="highlight yaml"><code><span class="na">show_govuk_logo</span><span class="pi">:</span> <span class="no">true</span>
+</code></pre></div>

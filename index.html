@@ -5,8 +5,7 @@
     <meta charset="utf-8">
     <meta content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport">
 
-    <!-- Use title if it's in the page YAML frontmatter -->
-    <title>Tech docs</title>
+    <title>Tech docs template</title>
 
     <!--[if gt IE 8]><!--><link href="stylesheets/screen.css" rel="stylesheet" media="screen" /><!--<![endif]-->
     <!--[if lte IE 8]><link href="stylesheets/screen-old-ie.css" rel="stylesheet" media="screen" /><![endif]-->
@@ -16,6 +15,16 @@
 
     <link href="stylesheets/print.css" rel="stylesheet" media="print" />
     <script src="javascripts/application.js"></script>
+
+      <meta property="og:image" content="tech-docs-manual.cloudapps.digital/images/govuk-large.png" />
+      <meta property="og:site_name" content="Tech docs template" />
+      <meta property="og:title" content="Tech docs template" />
+      <meta property="og:type" content="object" />
+      <meta property="og:url" content="tech-docs-manual.cloudapps.digital/" />
+      <meta property="twitter:card" content="summary" />
+      <meta property="twitter:image" content="tech-docs-manual.cloudapps.digital/images/govuk-large.png" />
+      <meta property="twitter:title" content="Tech docs template" />
+      <meta property="twitter:url" content="tech-docs-manual.cloudapps.digital/" />
   </head>
 
   <body>
@@ -54,16 +63,72 @@
     <a href="#tech-docs-template">Tech docs template</a>
     <ul>
       <li>
-        <a href="#usage">Usage</a>
+        <a href="#create-a-new-site">Create a new site</a>
+      </li>
+      <li>
+        <a href="#update-a-site">Update a site</a>
+      </li>
+      <li>
+        <a href="#configuration-options">Configuration options</a>
         <ul>
           <li>
-            <a href="#create-a-new-site">Create a new site</a>
+            <a href="#ga-tracking-id">ga_tracking_id</a>
           </li>
           <li>
-            <a href="#update-a-site">Update a site</a>
+            <a href="#github-repo">github_repo</a>
           </li>
           <li>
-            <a href="#configuration-options">Configuration options</a>
+            <a href="#google-site-verification">google_site_verification</a>
+          </li>
+          <li>
+            <a href="#header-links">header_links</a>
+          </li>
+          <li>
+            <a href="#host">host</a>
+          </li>
+          <li>
+            <a href="#max-toc-heading-level">max_toc_heading_level</a>
+          </li>
+          <li>
+            <a href="#phase">phase</a>
+          </li>
+          <li>
+            <a href="#prevent-indexing">prevent_indexing</a>
+          </li>
+          <li>
+            <a href="#redirects">redirects</a>
+          </li>
+          <li>
+            <a href="#service-name">service_name</a>
+          </li>
+          <li>
+            <a href="#service-link">service_link</a>
+          </li>
+          <li>
+            <a href="#show-contribution-banner">show_contribution_banner</a>
+          </li>
+          <li>
+            <a href="#show-govuk-logo">show_govuk_logo</a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a href="#frontmatter">Frontmatter</a>
+        <ul>
+          <li>
+            <a href="#last-reviewed-on-and-review-in">last_reviewed_on and review_in</a>
+          </li>
+          <li>
+            <a href="#layout">layout</a>
+          </li>
+          <li>
+            <a href="#old-paths">old_paths</a>
+          </li>
+          <li>
+            <a href="#owner-slack">owner_slack</a>
+          </li>
+          <li>
+            <a href="#title">title</a>
           </li>
         </ul>
       </li>
@@ -72,9 +137,6 @@
         <ul>
           <li>
             <a href="#local-development">Local development</a>
-          </li>
-          <li>
-            <a href="#how-to-contribute">How to contribute</a>
           </li>
         </ul>
       </li>
@@ -92,7 +154,7 @@
         <div class="app-pane__content toc-open-disabled">
           <main id="content" class="technical-documentation" data-module="anchored-headings">
             <h1 id="tech-docs-template">Tech docs template</h1>
-<p>The Tech docs template is a <a href="https://middlemanapp.com/">middleman</a> <a href="https://middlemanapp.com/advanced/project_templates/s">template</a> that
+<p>The Tech docs template is a <a href="https://middlemanapp.com/basics/frontmatter">middleman</a> <a href="https://middlemanapp.com/advanced/project-templates">template</a> that
 you can use to build technical documentation using a GOV.UK style.</p>
 
 <p><a href="images/composite.png" target="_blank" rel="noopener noreferrer"><img src="images/composite.png" alt="Screenshot of Example Documentation" /></a></p>
@@ -104,8 +166,8 @@ you can use to build technical documentation using a GOV.UK style.</p>
 <li><a href="https://github.com/alphagov/tech-docs-gem">alphagov/tech-docs-gem</a>: the gem used by generated sites to include HTML, CSS and JS</li>
 <li><a href="https://github.com/alphagov/tech-docs-manual">alphagov/tech-docs-manual</a>: the repo that generates the documentation you&rsquo;re looking at now</li>
 </ul>
-<h2 id="usage">Usage</h2><h3 id="create-a-new-site">Create a new site</h3>
-<p>You&rsquo;ll need <a href="https://middlemanapp.com/">middleman</a> installed, and its dependencies (Ruby). If you have Ruby v2.2.2 or newer installed you <em>should</em> just be able to run <code>gem install middleman</code>. Installing or updating Ruby is outside the scope of this README.</p>
+<h2 id="create-a-new-site">Create a new site</h2>
+<p>You&rsquo;ll need <a href="https://middlemanapp.com/basics/frontmatter">middleman</a> installed, and its dependencies (Ruby). If you have Ruby v2.2.2 or newer installed you <em>should</em> just be able to run <code>gem install middleman</code>. Installing or updating Ruby is outside the scope of this README.</p>
 
 <p>From the command line run the following commands, substituting <code>my-new-project</code>
 for the name of your new project:</p>
@@ -114,72 +176,154 @@ for the name of your new project:</p>
 <p>This will run an interactive prompt where you can set basic configuration for
 your project.</p>
 
-<p>In order to configure things like the header, edit <code>config/tech-docs.yml</code>.</p>
-<h3 id="update-a-site">Update a site</h3>
-<p>In most cases you can update your project to the latest template by running:</p>
+<p>After installing, you can <a href="#configuration-options">further customise your site</a>.</p>
+<h2 id="update-a-site">Update a site</h2>
+<p>If you want to upgrade to the latest version run the following:</p>
 <div class="highlight"><pre class="highlight plaintext"><code>bundle update govuk_tech_docs
 </code></pre></div>
 <p>This will make the site use the latest version of the <a href="https://github.com/alphagov/tech-docs-gem">govuk_tech_docs gem</a>.</p>
 
-<p>The <a href="https://github.com/alphagov/tech-docs-gem/blob/master/CHANGELOG.md">CHANGELOG</a> in the gem should tell you what changed and if you have to update any of your files. If that is the case, run:</p>
-<div class="highlight"><pre class="highlight plaintext"><code>middleman init . -T alphagov/tech-docs-template
-</code></pre></div>
-<p>If you have made any changes to the layout or any of the assets you will be
-prompted to resolve any conflicts, at which point you can view a diff between
-your version and the latest version.</p>
-<h3 id="configuration-options">Configuration options</h3>
+<p>The <a href="https://github.com/alphagov/tech-docs-gem/blob/master/CHANGELOG.md">CHANGELOG</a> in the gem should tell you what changed.</p>
+<h2 id="configuration-options">Configuration options</h2>
 <p>You can configure the site using <code>config/tech-docs.yml</code>. <a href="https://github.com/alphagov/paas-tech-docs/blob/master/config/tech-docs.yml">See the PaaS tech docs for an example</a>.</p>
 
 <p>These are all the available options:</p>
-<h4 id="host"><code>host</code></h4>
-<p>Host to use for canonical URL generation (without trailing slash).</p>
-
-<p>Example:</p>
-<div class="highlight"><pre class="highlight yaml"><code><span class="na">host</span><span class="pi">:</span> <span class="s">https://docs.cloud.service.gov.uk</span>
-</code></pre></div><h4 id="show-govuk-logo"><code>show_govuk_logo</code></h4>
-<p>Whether to show the GOV.UK crown logo.</p>
-
-<p>default: <code>true</code></p>
-<div class="highlight"><pre class="highlight yaml"><code><span class="na">show_govuk_logo</span><span class="pi">:</span> <span class="no">true</span>
-</code></pre></div><h4 id="service-name"><code>service_name</code></h4>
-<p>The service name in the header.</p>
-
-<p>Example:</p>
-<div class="highlight"><pre class="highlight yaml"><code><span class="na">service_name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Platform</span><span class="nv"> </span><span class="s">as</span><span class="nv"> </span><span class="s">a</span><span class="nv"> </span><span class="s">Service"</span>
-</code></pre></div><h4 id="service-link"><code>service_link</code></h4>
-<p>What the service name in the header links to.</p>
-
-<p>default: &rsquo;/&rsquo;</p>
-<div class="highlight"><pre class="highlight yaml"><code><span class="na">service_link</span><span class="pi">:</span> <span class="s2">"</span><span class="s">/"</span>
-</code></pre></div><h4 id="phase"><code>phase</code></h4><div class="highlight"><pre class="highlight yaml"><code><span class="na">phase</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Beta"</span>
-</code></pre></div><h4 id="header-links"><code>header_links</code></h4>
+<h3 id="ga-tracking-id"><code>ga_tracking_id</code></h3>
+<p>Tracking ID from Google Analytics</p>
+<div class="highlight"><pre class="highlight yaml"><code><span class="na">ga_tracking_id</span><span class="pi">:</span> <span class="s">UA-XXXX-Y</span>
+</code></pre></div><h3 id="github-repo"><code>github_repo</code></h3>
+<p>Your repository. Required if <a href="#show-contribution-banner">show_contribution_banner</a> is true.</p>
+<div class="highlight"><pre class="highlight yaml"><code><span class="na">github_repo</span><span class="pi">:</span> <span class="s">alphagov/example-repo</span>
+</code></pre></div><h3 id="google-site-verification"><code>google_site_verification</code></h3>
+<p>Adds a <a href="https://support.google.com/webmasters/answer/35179?hl=en">Google Site Verification code</a> to the meta tags.</p>
+<div class="highlight"><pre class="highlight yaml"><code><span class="na">google_site_verification</span><span class="pi">:</span> <span class="s">TvDTuyvdstyusadrCSDrctyd</span>
+</code></pre></div><h3 id="header-links"><code>header_links</code></h3>
 <p>Right hand side navigation.</p>
 
 <p>Example:</p>
 <div class="highlight"><pre class="highlight yaml"><code><span class="na">header_links</span><span class="pi">:</span>
   <span class="na">Documentation</span><span class="pi">:</span> <span class="s">/</span>
-</code></pre></div><h4 id="prevent-indexing"><code>prevent_indexing</code></h4>
-<p>Prevent robots from indexing (e.g. whilst in development)</p>
-<div class="highlight"><pre class="highlight yaml"><code><span class="na">prevent_indexing</span><span class="pi">:</span> <span class="no">false</span>
-</code></pre></div><h4 id="ga-tracking-id"><code>ga_tracking_id</code></h4>
-<p>Tracking ID from Google Analytics</p>
-<div class="highlight"><pre class="highlight yaml"><code><span class="na">ga_tracking_id</span><span class="pi">:</span> <span class="s">UA-XXXX-Y</span>
-</code></pre></div><h4 id="max-toc-heading-level"><code>max_toc_heading_level</code></h4>
+</code></pre></div><h3 id="host"><code>host</code></h3>
+<p>Host to use for canonical URL generation (without trailing slash).</p>
+
+<p>Example:</p>
+<div class="highlight"><pre class="highlight yaml"><code><span class="na">host</span><span class="pi">:</span> <span class="s">https://docs.cloud.service.gov.uk</span>
+</code></pre></div><h3 id="max-toc-heading-level"><code>max_toc_heading_level</code></h3>
 <p>Table of contents depth – how many levels to include in the table of contents. If your ToC is too long, reduce this number and we&rsquo;ll only show higher-level headings.</p>
 <div class="highlight"><pre class="highlight yaml"><code><span class="na">max_toc_heading_level</span><span class="pi">:</span> <span class="s">6</span>
-</code></pre></div><h4 id="google-site-verification"><code>google_site_verification</code></h4>
-<p>Adds a <a href="https://support.google.com/webmasters/answer/35179?hl=en">Google Site Verification code</a> to the meta tags.</p>
-<div class="highlight"><pre class="highlight yaml"><code><span class="na">google_site_verification</span><span class="pi">:</span> <span class="s">TvDTuyvdstyusadrCSDrctyd</span>
-</code></pre></div><h2 id="developing-the-template">Developing the template</h2><h3 id="local-development">Local development</h3>
-<p>If you make changes to the template you can create a test site with this command.
-Make sure that you&rsquo;ve committed your changes first, because Middleman works with Git.</p>
-<div class="highlight"><pre class="highlight plaintext"><code>bundle install
-bundle exec middleman init tmp/test-run -T file://$(pwd)
-cd tmp/test-run
-bundle exec middleman server
+</code></pre></div><h3 id="phase"><code>phase</code></h3><div class="highlight"><pre class="highlight yaml"><code><span class="na">phase</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Beta"</span>
+</code></pre></div><h3 id="prevent-indexing"><code>prevent_indexing</code></h3>
+<p>Prevent robots from indexing (e.g. whilst in development)</p>
+<div class="highlight"><pre class="highlight yaml"><code><span class="na">prevent_indexing</span><span class="pi">:</span> <span class="no">false</span>
+</code></pre></div><h3 id="redirects"><code>redirects</code></h3>
+<p>A list of redirects, from old to new location. Use this to set up external
+redirects or if <a href="docs/frontmatter.md#old_paths">setting <code>old_paths</code> in the frontmatter</a> doesn&rsquo;t work.</p>
+<div class="highlight"><pre class="highlight yaml"><code><span class="na">redirects</span><span class="pi">:</span>
+  <span class="s">/old-page.html</span><span class="pi">:</span> <span class="s">https://example.org/something-else.html</span>
+  <span class="s">/another/old-page.html</span><span class="pi">:</span> <span class="s">/another/new-page.html</span>
+</code></pre></div><h3 id="service-name"><code>service_name</code></h3>
+<p>The service name in the header.</p>
+
+<p>Example:</p>
+<div class="highlight"><pre class="highlight yaml"><code><span class="na">service_name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Platform</span><span class="nv"> </span><span class="s">as</span><span class="nv"> </span><span class="s">a</span><span class="nv"> </span><span class="s">Service"</span>
+</code></pre></div><h3 id="service-link"><code>service_link</code></h3>
+<p>What the service name in the header links to.</p>
+
+<p>default: &rsquo;/&rsquo;</p>
+<div class="highlight"><pre class="highlight yaml"><code><span class="na">service_link</span><span class="pi">:</span> <span class="s2">"</span><span class="s">/"</span>
+</code></pre></div><h3 id="show-contribution-banner"><code>show_contribution_banner</code></h3>
+<p>Show a block at the bottom of the page that links to the page source, so readers
+can easily contribute back to the documentation. If turned on <a href="#github-repo">github_repo</a> is
+required.</p>
+
+<p>Off by default.</p>
+<div class="highlight"><pre class="highlight yaml"><code><span class="na">show_contribution_banner</span><span class="pi">:</span> <span class="no">true</span>
+<span class="na">github_repo</span><span class="pi">:</span> <span class="s">alphagov/example-repo</span>
+</code></pre></div><h3 id="show-govuk-logo"><code>show_govuk_logo</code></h3>
+<p>Whether to show the GOV.UK crown logo.</p>
+
+<p>default: <code>true</code></p>
+<div class="highlight"><pre class="highlight yaml"><code><span class="na">show_govuk_logo</span><span class="pi">:</span> <span class="no">true</span>
+</code></pre></div><h2 id="frontmatter">Frontmatter</h2>
+<p>&ldquo;Frontmatter&rdquo; allows page-specific variables to be included at the top of a template using YAML. For a general introduction on frontmatter, see the <a href="https://middlemanapp.com/basics/frontmatter">Middleman frontmatter docs</a>.</p>
+<h3 id="last-reviewed-on-and-review-in"><code>last_reviewed_on</code> and <code>review_in</code></h3>
+<p>These attributes determine the date when the page needs to be reviewed next.</p>
+
+<p>If the page doesn&rsquo;t need to be reviewed, we show a blue box with the last-reviewed date, when it needs review again, and the owner.</p>
+
+<p><a href="not-expired-page.png" target="_blank" rel="noopener noreferrer"><img src="not-expired-page.png" alt="Not expired page" /></a></p>
+
+<p>If the page needs to be reviewed, we show a red box saying the page might not be accurate.</p>
+
+<p><a href="expired-page.png" target="_blank" rel="noopener noreferrer"><img src="expired-page.png" alt="Expired page" /></a></p>
+
+<p>Example:</p>
+<div class="highlight"><pre class="highlight yaml"><code><span class="nn">---</span>
+<span class="na">last_reviewed_on</span><span class="pi">:</span> <span class="s">2018-01-18</span>
+<span class="na">review_in</span><span class="pi">:</span> <span class="s">6 weeks</span>
+<span class="nn">---</span>
 </code></pre></div>
-<p>Your generated site should appear on <a href="http://localhost:4567">http://localhost:4567</a>.</p>
-<h3 id="how-to-contribute">How to contribute</h3><h2 id="active-users">Active users</h2>
+<p>You can use this in combination with <a href="#owner-slack">owner_slack</a> to set an owner for the page.</p>
+<h3 id="layout"><code>layout</code></h3>
+<p>The layout of the page.</p>
+<div class="highlight"><pre class="highlight yaml"><code><span class="nn">---</span>
+<span class="na">layout</span><span class="pi">:</span> <span class="s">core</span>
+<span class="nn">---</span>
+</code></pre></div>
+<p>There are 2 available page layouts.</p>
+<h4 id="the-layout-layout-default">The <code>layout</code> layout (default)</h4>
+<p>By default, pages will use the <code>layout</code> layout. This layout will parse the page and generate a sidebar with a table of contents consisting of each <code>h2</code>, <code>h3</code>, <code>h4</code> heading.</p>
+<div class="highlight"><pre class="highlight markdown"><code><span class="nn">---</span>
+<span class="na">layout</span><span class="pi">:</span> <span class="s">layout</span>
+<span class="nn">---</span>
+
+<span class="gh"># The title</span>
+
+<span class="gu">### A subheader</span>
+
+<span class="gu">#### A h3 subheader</span>
+
+<span class="gu">### Another subheader</span>
+</code></pre></div>
+<p>Will generate a page with the headings from the content in the sidebar.</p>
+
+<p><a href="layout-layout.png" target="_blank" rel="noopener noreferrer"><img src="layout-layout.png" alt="Layout layout" /></a></p>
+<h4 id="core-layout"><code>core</code> layout</h4>
+<p>If you want more control about the layout, use <code>core</code> layout. This allows you to specify the sidebar manually with a <code>content_for</code> block.</p>
+<div class="highlight"><pre class="highlight ruby"><code><span class="o">---</span>
+<span class="ss">layout: </span><span class="n">core</span>
+<span class="o">---</span>
+
+<span class="o">&lt;</span><span class="sx">% content_for </span><span class="ss">:sidebar</span> <span class="k">do</span> <span class="sx">%&gt;
+  You can put anything in the sidebar.
+&lt;% end %&gt;</span>
+
+<span class="no">This</span> <span class="n">page</span> <span class="n">has</span> <span class="n">a</span> <span class="n">configurable</span> <span class="n">sidebar</span> <span class="n">that</span> <span class="n">is</span> <span class="n">independent</span> <span class="n">of</span> <span class="n">the</span> <span class="n">content</span><span class="o">.</span>
+</code></pre></div>
+<p><a href="core-layout.png" target="_blank" rel="noopener noreferrer"><img src="core-layout.png" alt="Core layout" /></a></p>
+<h3 id="old-paths"><code>old_paths</code></h3>
+<p>Any paths of pages that should redirect to this page.</p>
+
+<p>Example:</p>
+<div class="highlight"><pre class="highlight yaml"><code><span class="nn">---</span>
+<span class="na">old_paths</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">/some-old-page.html</span>
+<span class="nn">---</span>
+</code></pre></div><h3 id="owner-slack"><code>owner_slack</code></h3>
+<p>The Slack username or channel of the page owner. This can be used to appoint an individual or team as responsible for keeping the page up to date.</p>
+<div class="highlight"><pre class="highlight yaml"><code><span class="nn">---</span>
+<span class="na">owner_slack</span><span class="pi">:</span> <span class="s2">"</span><span class="s">#operations-teams"</span>
+<span class="nn">---</span>
+</code></pre></div><h3 id="title"><code>title</code></h3>
+<p>The browser title of the page.</p>
+<div class="highlight"><pre class="highlight yaml"><code><span class="nn">---</span>
+<span class="na">title</span><span class="pi">:</span> <span class="s">My beautiful page</span>
+<span class="nn">---</span>
+</code></pre></div><h2 id="developing-the-template">Developing the template</h2><h3 id="local-development">Local development</h3>
+<p>Refer to the <a href="https://github.com/alphagov/tech-docs-template#local-development">readme of tech-docs-template</a> if you intend to make changes to the generator.</p>
+
+<p>Refer to the <a href="https://github.com/alphagov/tech-docs-gem#developing-locally">readme of the gem</a> if you intend to work on the gem.</p>
+<h2 id="active-users">Active users</h2>
 <p>This project is in active use by:</p>
 
 <ul>
@@ -198,7 +342,9 @@ bundle exec middleman server
 <li>GOV.UK Notify (<a href="https://github.com/alphagov/notifications-tech-docs">GitHub repo</a>)</li>
 </ul>
 
+            
           </main>
+
 
           <footer class="footer">
   <div class="footer__licence">
