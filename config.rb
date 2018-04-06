@@ -14,7 +14,7 @@ helpers do
     markdown = raw_markdown.lines[1..-1].join
 
     # Convert the h2 headers to h3
-    markdown.gsub!('##', '####')
+    markdown.gsub!('##', '###')
 
     markdown
   end
