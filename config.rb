@@ -5,10 +5,11 @@ GovukTechDocs.configure(self)
 activate :relative_assets
 set :relative_links, true
 
+DOCS_LOCATION_IN_GEM = Bundler.rubygems.find_name('govuk_tech_docs').first.full_gem_path + "/docs"
+
 helpers do
-  def template_configuration_options
-    gem_location = Bundler.rubygems.find_name('govuk_tech_docs').first.full_gem_path
-    raw_markdown = File.read(gem_location + "/docs/configuration.md")
+  def gem_docs(filename)
+    raw_markdown = File.read(DOCS_LOCATION_IN_GEM + "/#{filename}")
 
     # Strip the h1 header
     markdown = raw_markdown.lines[1..-1].join
