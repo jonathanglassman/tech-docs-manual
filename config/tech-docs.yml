@@ -9,3 +9,6 @@ service_link: /
 max_toc_heading_level: 3
 
 prevent_indexing: false
+
+show_contribution_banner: true
+github_repo: alphagov/tech-docs-manual
