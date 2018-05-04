@@ -73,4 +73,9 @@
 <div class="highlight"><pre class="highlight yaml"><code><span class="nn">---</span>
 <span class="na">title</span><span class="pi">:</span> <span class="s">My beautiful page</span>
 <span class="nn">---</span>
+</code></pre></div><h2 id="parent"><code>parent</code></h2>
+<p>The page that should be highlighted as ‘active’ in the navigation.</p>
+<div class="highlight"><pre class="highlight yaml"><code><span class="nn">---</span>
+<span class="na">parent</span><span class="pi">:</span> <span class="s">shaving-yaks.html</span>
+<span class="nn">---</span>
 </code></pre></div>
